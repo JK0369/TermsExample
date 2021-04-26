@@ -15,6 +15,8 @@ class TermsCell: UITableViewCell {
     @IBOutlet weak var lblOption: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
 
     var bag = DisposeBag()
 
@@ -36,11 +38,13 @@ class TermsCell: UITableViewCell {
             lblOption.isHidden = false
             lblOption.text = mandatoryName
             leadingConstraint.constant = 12
-            containerView.heightAnchor.constraint(equalToConstant: 48).isActive = true
+            topConstraint.constant = 14
+            bottomConstraint.constant = 14
         case .sub:
             lblOption.isHidden = true
             leadingConstraint.constant = 48
-            containerView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            topConstraint.constant = 14
+            bottomConstraint.constant = 8
         }
         let checkImageName = data.isAccept ? "circle.fill" : "circle"
         btnCheck.setImage(UIImage(systemName: checkImageName), for: .normal)
